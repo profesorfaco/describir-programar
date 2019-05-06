@@ -24,7 +24,7 @@ A través de CSS puedo describir el modo en que deben verse los elementos de HTM
 
 Cuando le indicas al navegador "Ver el código fuente de la página", lo que obtienes es la descripción de tal página, algo idéntico a lo que se pudo escribir en un [Editor de código fuente](https://es.wikipedia.org/wiki/Editor_de_código_fuente). Ese escrito es analizado por el navegador y un resultado de tal análisis es el DOM, y esto último es lo que se manipula con JavaScript. Dicho de un modo simple, el DOM es donde la máquina hace cosas y Javascript es el lenguaje que le indica a la máquina qué cosas hacer.
 
-**2.2. [D3.js es <u>D</u>ata <u>D</u>riven <u>D</u>ocument</a>](https://github.com/profesorfaco/describir-programar/wiki/D3.js)**. Es una de [muchas bibliotecas de JavaScript](https://www.javascripting.com/). Su diferencia, y razón para explorarla, es que nos facilita, además de la manipulación del DOM, el trabajo con datos, CSS y SVG.
+**2.2. [D3.js es <u>D</u>ata <u>D</u>riven <u>D</u>ocument</a>](https://github.com/profesorfaco/describir-programar/wiki/D3.js)** es una de [muchas bibliotecas de JavaScript](https://www.javascripting.com/). Su diferencia, y razón para explorarla, es que nos facilita, además de la manipulación del DOM, el trabajo con datos, CSS y SVG.
  
 - - - - - - - - - - - - - - - - - 
 
