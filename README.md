@@ -26,7 +26,7 @@ A través de CSS puedo describir el modo en que deben verse los elementos de HTM
 
 #### 2. Programar
 
-**2.1. <a href="https://github.com/profesorfaco/describir-programar/wiki/JavaScript" title="Wiki del Repositorio" target="_blank">JavaScript</a>** es un lenguaje de programación que nace para la web
+**2.1. <a href="https://github.com/profesorfaco/describir-programar/wiki/JavaScript" title="Wiki del Repositorio" target="_blank">JavaScript</a>** es un lenguaje de programación, se usa para escribir funciones embebidas o incluidas en páginas HTML y que interactúan con el Document Object Model (DOM o Modelo de Objetos del Documento) de la página
 
 Cuando le indicas al navegador "Ver el código fuente de la página", lo que obtienes es la descripción de tal página, algo idéntico a lo que se pudo escribir en un <a href="https://es.wikipedia.org/wiki/Editor_de_código_fuente" title="Wikipedia" target="_blank">Editor de código fuente</a>. Ese escrito es analizado por el navegador y un resultado de tal análisis es el <a href="https://es.wikipedia.org/wiki/Document_Object_Model" title="Wikipedia" target="_blank">Document Object Model (DOM)</a>; esto último es lo que se manipula con JavaScript. Dicho de un modo simple, el DOM es donde la máquina hace cosas y Javascript es el lenguaje que le indica a la máquina qué cosas hacer.
 
