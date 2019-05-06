@@ -1,11 +1,5 @@
 # Describir y programar
 
-Diplomado en Visualización de Datos UC, 2019
-
-Miércoles 8 de mayo + Sábado 11 de mayo
-
-Profesor Felipe Cortez / http://profesor.faco.cl / profesor@faco.cl
-
 ### Una introducción a la publicación Web, JavaScript y D3.js
 
 La publicación de una visualización de datos en web nos exige <a href="https://es.wikipedia.org/wiki/Categoría:Lenguajes_de_descripción" title="Categoría:Lenguajes de descripción - Wikipedia">describir</a> y <a href="https://es.wikipedia.org/wiki/Anexo:Lenguajes_de_programación" title="Anexo:Lenguajes de programación - Wikipedia">programar</a>, utilizando lenguajes específicos para cada caso. Para describir tenemos los lenguajes <strong>HTML</strong> y <strong>CSS</strong>; y para programar tenemos, entre otros lenguajes, a <strong>JavaScript</strong>.
@@ -34,7 +28,7 @@ Cuando le indicas al navegador "Ver el código fuente de la página", lo que obt
  
 - - - - - - - - - - - - - - - - - 
 
-### Clase 1: 
+### Clase 1: Miércoles 8 de mayo, 2019
 
 [Retomando la clase sobre datos](https://profesorfaco.github.io/describir-programar/)
 
@@ -44,6 +38,8 @@ Cuando le indicas al navegador "Ver el código fuente de la página", lo que obt
 
 - - - - - - - - - - - - - - - - - 
 
-### Clase 2:
+### Clase 2: Sábado 11 de mayo, 2018
 
 Más sobre D3.js
+
+- - - - - - - - - - - - - - - - - 
