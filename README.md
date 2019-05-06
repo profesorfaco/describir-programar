@@ -22,7 +22,7 @@ En la primera o en la única etiqueta de cada <a href="https://developer.mozilla
 
 **1.3. <a href="https://github.com/profesorfaco/describir-programar/wiki/CSS" title="Wiki del Repositorio" target="_blank">CSS es Cascading Style Sheets</a>**. Su bloque constructivo más básico es la regla. Cada regla se inicia con su(s) <a href="https://developer.mozilla.org/es/docs/Web/CSS/Referencia_CSS#Selectores" target="_blank" title="Referencia CSS">selector(es)</a>, para luego contener, entre paréntesis de llave, determinadas <a href="https://www.w3schools.com/cssref/default.asp" target="_blank" title="CSS Properties">propiedades</a>: `selector{propiedad:valor;}`
                 
-A través de CSS puedo describir el modo en que deben verse los elementos de HTML y SVG. Si mediante elementos HTML y SVG defino qué se ve, mediante reglas CSS defino el cómo debe verse aquello cuando sea visto, con la posibilidad de establecer modos específicos para dispositivos específicos.
+A través de CSS puedo describir el modo en que deben verse los elementos de HTML y SVG en la ventana del navegador. Si mediante elementos HTML y SVG defino qué se ve, mediante reglas CSS defino el cómo debe verse aquello cuando sea visto, con la posibilidad de establecer modos específicos para dispositivos específicos.
 
 #### 2. Programar
 
