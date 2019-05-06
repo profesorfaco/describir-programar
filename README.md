@@ -4,11 +4,11 @@
 
 #### Clase 1: 
 
-Continuando…
+[Continuando…](https://profesorfaco.github.io/describir-programar/)
 
-HTML y CSS en 5 pasos
+[HTML y CSS en 5 pasos](https://profesorfaco.github.io/describir-programar/step-by-step/html-css/step-1.html)
 
-SVG y D3.js en 5 pasos
+[SVG y D3.js en 5 pasos](https://profesorfaco.github.io/describir-programar/step-by-step/svg-d3/step-1.html)
 
 #### Clase 2:
 
