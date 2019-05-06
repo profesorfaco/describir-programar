@@ -30,7 +30,7 @@ Cuando le indicas al navegador "Ver el código fuente de la página", lo que obt
 
 ### Clase 1: 
 
-[Continuando…](https://profesorfaco.github.io/describir-programar/)
+[Retomando la clase sobre datos](https://profesorfaco.github.io/describir-programar/)
 
 [HTML y CSS en 5 pasos](https://profesorfaco.github.io/describir-programar/step-by-step/html-css/step-1.html)
 
