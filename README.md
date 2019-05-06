@@ -6,13 +6,13 @@ Miércoles 8 de mayo + Sábado 11 de mayo
 
 Profesor Felipe Cortez / http://profesor.faco.cl / profesor@faco.cl
 
-## Una introducción a la publicación Web, JavaScript y D3.js
+### Una introducción a la publicación Web, JavaScript y D3.js
 
 La publicación de una visualización de datos en web nos exige <a href="https://es.wikipedia.org/wiki/Categoría:Lenguajes_de_descripción" title="Categoría:Lenguajes de descripción - Wikipedia">describir</a> y <a href="https://es.wikipedia.org/wiki/Anexo:Lenguajes_de_programación" title="Anexo:Lenguajes de programación - Wikipedia">programar</a>, utilizando lenguajes específicos para cada caso. Para describir tenemos los lenguajes <strong>HTML</strong> y <strong>CSS</strong>; y para programar tenemos, entre otros lenguajes, a <strong>JavaScript</strong>.
 
 A los lenguajes de descripción mencionados arriba, sumaremos un dialecto: <strong>SVG</strong>. Y para simplificar el trabajo de programación, usaremos una biblioteca de JavaScript: <strong>D3.js</strong>.
 
-### 1. Describir
+#### 1. Describir
 
 **1.1. <a href="https://github.com/profesorfaco/describir-programar/wiki/HTML" title="Wiki del Repositorio" target="_blank">HTML es <u>H</u>yper<u>T</u>ext <u>M</u>arkup <u>L</u>anguage</strong></a>**. Su bloque constructivo más básico es el <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento" target="_blank" title="Referencia de Elementos HTML">elemento</a>. Un <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento" target="_blank" title="Referencia de Elementos HTML">elemento</a> es un contenido marcado con una etiqueta de apertura (<code>&lt;etiqueta&gt;</code>) y una etiqueta de cierre (<code>&lt;/etiqueta&gt;</code>); aunque hay <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento" target="_blank" title="Referencia de Elementos HTML">elementos</a> que no son más que una etiqueta.
 
@@ -24,7 +24,7 @@ En la primera o en la única etiqueta de cada <a href="https://developer.mozilla
                 
 A través de CSS puedo describir el modo en que deben verse los elementos de HTML y SVG. Si mediante elementos HTML y SVG defino qué se ve, mediante reglas CSS defino el cómo debe verse aquello cuando sea visto, con la posibilidad de establecer modos específicos para dispositivos específicos.
 
-### 2. Programar
+#### 2. Programar
 
 **2.1. <a href="https://github.com/profesorfaco/describir-programar/wiki/JavaScript" title="Wiki del Repositorio" target="_blank">JavaScript</a>** es un lenguaje de programación que nace para la web
 
