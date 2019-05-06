@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Los siguientes metadatos son siempre necesarios -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Lo que sigue vincula el estilo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Lo que sigue vincula el estilo CSS de una librería que me permite trabajar con mapas: leaflet.js  -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    <!-- Lo que sigue vincula la librería de leaflet.js  -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+    <!-- A continuación agrego algo de estilo a la página -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        g:hover circle{
+            fill: red;
+        }
+        g:hover text{
+            fill: white;
+        }
+
+    </style>
+
+    <title>+M4.5 | Chile</title>
+</head>
+
+<body>
+
+    <select id="menu" onchange="location=this.value;">
+        <option value="index.html">temblores localizados</option>
+        <option value="comparar.html" selected>temblores comparados</option>
+        <option value="desarmar.html">describir y programar</option>
+    </select>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-10 py-5 mx-auto">
+                <h1>+M4.5</h1>
+                <h3 class="mb-5">Un mes de temblores en Chile</h3>
+                <p>Si ya estamos utilizando la biblioteca de JavaScript que se llama <a href="https://d3js.org/">D3.js (<u>D</u>ata-<u>D</u>riven <u>D</u>ocuments)</a>, podemos aprovechar de crear un <a href="https://developer.mozilla.org/es/docs/Web/SVG/Element/svg" target="_blank">elemento SVG</a> y dentro suyo agregar <a href="https://developer.mozilla.org/es/docs/Web/SVG/Element#Elementos_SVG_por_Categor%C3%ADas" target="_blank">formas báscias</a> usando el dialecto correspondiente.</p>
+                <p>Para esta exploración seguiremos aprovechando que la <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">USGS</a> actualiza cada minuto un <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson">GeoJSON</a> con el registro de los temblores que han ocurrido durante el último mes alrededor del mundo.</p>
+                <div id="total" class="lead"></div>
+                <div id="dibujo"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Lo que sigue vincula la librería de d3.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+    <!-- En lo que sigue me aprovecho de dos liberarías de JavaScript: leaflet.js y d3.js-->
+    <script>
+
+        d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson").then(function(data) {
+            var total = 0;
+            var pais = "Chile";
+            var magnitudes = []
+            var fechas = []
+            data.features.forEach(function(t, i) {
+                if (t.properties.place.includes(pais)) {
+                    magnitudes.push(t.properties.mag);
+                    fechas.push((new Date(t.properties.time)).getDate() + '/' + (new Date(t.properties.time)).getMonth());
+                }
+            });
+
+            console.log(magnitudes)
+            console.log(fechas)
+
+            d3.select("h3").text("Un mes de temblores en " + pais);
+
+            d3.select("#total").append("p").text('A continuación comparamos, a través del radio de ' + magnitudes.length + ' circulos, la magnitud de los ' + magnitudes.length + ' temblores que ha registrado la USGS para ' + pais + ' durante el último mes:');
+        
+            var svg = d3.select("#dibujo").append("svg").attr("width","100%").attr("height","100%").attr('viewBox','0 0 100 30').style("background","rgba(203, 221, 221, 1)");            
+
+            //Para distribuir los elementos dentro del SVG, usaré la siguiente variable
+
+            var porcion = 100/(magnitudes.length+1);
+            
+            var temblor = svg.selectAll("circle").data(magnitudes).enter().append("g");
+
+            var circles = temblor.append("circle");
+            
+            circles
+            .attr("cx", function(d,i){return(porcion*(i+1) )})
+            .attr("cy",15)
+            .attr("r", function(d) { return (Math.pow(d,4))/100 })
+            .attr("fill","rgba(255, 110, 110, 0.25)");
+
+            //El primer elemento gráfico a crear: texto(s)
+
+            var textos = temblor.append("text");
+
+            textos
+            .attr("x", function(d,i){return( porcion*(i+1) )})
+            .attr("y",15.1)
+            .attr("text-anchor","middle")
+            .attr("font-size",1.1)
+            .attr("fill","red")
+            .text(function(d) { return (d) })
+
+        });
+    </script>
+
+</body>
+
+</html>

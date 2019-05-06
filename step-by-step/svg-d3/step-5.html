@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Step five | Don't you know that the time is right</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif
+        }
+        
+        p {
+            text-align: center
+        }
+
+        g:hover circle{
+        	opacity:.9;
+        }
+
+        g:hover text{
+        	fill:#fff;
+        }
+    </style>
+</head>
+
+<body>
+    <svg viewBox="0 0 400 200" style="background:#ddd;">
+    </svg>
+
+    <p><a href="step-1.html">1</a> - <a href="step-2.html">2</a> - <a href="step-3.html">3</a> - <a href="step-4.html">4</a> - <strong><a href="step-5.html">5</a></strong></p>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+        var datos = [3, 5, 7, 6]
+        
+        var porcion = 400 / (datos.length + 1)
+        
+        var aqui = d3.select("svg");
+        
+        var grupo = aqui.selectAll("g").data(datos).enter().append("g");
+        
+        grupo.append("circle")
+        .attr("cx", function(d,i){return(porcion*(i+1) )})
+        .attr("cy", 100)
+        .attr("r", function(d){return(d*10)})
+        .attr("opacity", .25);
+        
+        grupo.append("text")
+        .attr("x", function(d,i){return(porcion*(i+1) )})
+        .attr("y", 105)
+        .attr("text-anchor", "middle")
+        .text(function(d){return(d)});
+    </script>
+</body>
+
+</html>

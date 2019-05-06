@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Los siguientes metadatos son siempre necesarios -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Lo que sigue vincula el estilo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Lo que sigue vincula el estilo CSS de una librería que me permite trabajar con mapas: leaflet.js  -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    <!-- Lo que sigue vincula la librería de leaflet.js  -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+    <!-- A continuación agrego algo de estilo a la página -->
+    <link rel="stylesheet" href="style.css">
+    <title>+M4.5 | Chile</title>
+</head>
+
+<body>
+
+    <select id="menu" onchange="location=this.value;">
+        <option value="index.html">temblores localizados</option>
+        <option value="comparar.html">temblores comparados</option>
+        <option value="desarmar.html" selected>describir y programar</option>
+    </select>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-10 py-5 mx-auto">
+
+                <h1>Describir y programar</h1>
+                
+                <h3 class="mb-5">Introducción a la publicación Web, JavaScript y D3.js</h3>
+                
+                <p>La publicación de una visualización de datos en web nos exige <a href="https://es.wikipedia.org/wiki/Categoría:Lenguajes_de_descripción" title="Categoría:Lenguajes de descripción - Wikipedia">describir</a> y <a href="https://es.wikipedia.org/wiki/Anexo:Lenguajes_de_programación" title="Anexo:Lenguajes de programación - Wikipedia">programar</a>, utilizando lenguajes específicos para cada caso. Para describir tenemos los lenguajes <strong>HTML</strong> y <strong>CSS</strong>; y para programar tenemos, entre otros lenguajes, a <strong>JavaScript</strong>.</p>
+
+                <p>A los lenguajes de descripción mencionados arriba, sumaremos un dialecto: <strong>SVG</strong>. Y para simplificar el trabajo de programación, usaremos una biblioteca de JavaScript: <strong>D3.js</strong>.</p>
+
+                <h4 class="pt-4 pb-2">1. Describir</h4>
+
+                <p id="html"><strong>1.1. <a href="https://github.com/profesorfaco/describir-programar/wiki/HTML" title="Wiki del Repositorio" target="_blank">HTML es <u>H</u>yper<u>T</u>ext <u>M</u>arkup <u>L</u>anguage</strong></a>. Su bloque constructivo más básico es el <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento" target="_blank" title="Referencia de Elementos HTML">elemento</a>. Un <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento" target="_blank" title="Referencia de Elementos HTML">elemento</a> es un contenido marcado con una etiqueta de apertura (<code>&lt;etiqueta&gt;</code>) y una etiqueta de cierre (<code>&lt;/etiqueta&gt;</code>); aunque hay <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento" target="_blank" title="Referencia de Elementos HTML">elementos</a> que no son más que una etiqueta.</p>
+
+                <p>En la primera o en la única etiqueta de cada <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento" target="_blank" title="Referencia de Elementos HTML">elemento</a> es posible agregar uno o varios <a href="https://developer.mozilla.org/es/docs/Web/HTML/Atributos" title="Referencia de Atributos HTML" target="_blank">atributos</a>, los que nos permitirán caracterizar o identificar al <a href="https://developer.mozilla.org/es/docs/Web/HTML/Elemento" target="_blank" title="Referencia de Elementos HTML">elemento</a> en cuestión. 
+                
+                <p id="svg"><strong>1.2. <a href="https://github.com/profesorfaco/describir-programar/wiki/SVG" title="Wiki del Repositorio" target="_blank">SVG es Scalable Vector Graphics</a></strong>. Este dialecto ofrece una serie de elementos gráficos vectoriales, en los que se deben usar atributos para establecer sus características básicas, incluyendo su posición en un plano. Por ejemplo, puedo definir que quiero un círculo (circle), cuyo centro esté en una coordenada horitonzal (cx) y otra vertical (cy), con cierto radio (r):<br /> <code>&lt;circle cx="10" cy="10" r="10"/&gt;</code></p> 
+
+                <p id="css"><strong>1.3. <a href="https://github.com/profesorfaco/describir-programar/wiki/CSS" title="Wiki del Repositorio" target="_blank">CSS es Cascading Style Sheets</a></strong>. Su bloque constructivo más básico es la regla. Cada regla se inicia con su(s) <a href="https://developer.mozilla.org/es/docs/Web/CSS/Referencia_CSS#Selectores" target="_blank" title="Referencia CSS">selector(es)</a>, para luego contener, entre paréntesis de llave, determinadas <a href="https://www.w3schools.com/cssref/default.asp" target="_blank" title="CSS Properties">propiedades</a> (<code>selector{propiedad:valor;}</code>)</p>
+                
+                <p>A través de CSS puedo describir el modo en que deben verse los elementos de HTML y SVG. Si mediante elementos HTML y SVG defino qué se ve, mediante reglas CSS defino el cómo debe verse aquello cuando sea visto, con la posibilidad de establecer modos específicos para dispositivos específicos.</p>
+
+                <h4 class="pt-4 pb-2">2. Programar</h4>
+                                
+                <p id="js"><strong>2.1. <a href="https://github.com/profesorfaco/describir-programar/wiki/JavaScript" title="Wiki del Repositorio" target="_blank">JavaScript</a></strong> es un lenguaje de programación que nace para la web</p>
+                                
+                <p>Cuando le indicas al navegador "Ver el código fuente de la página", lo que obtienes es la descripción de tal página, algo idéntico a lo que se pudo escribir en un <a href="https://es.wikipedia.org/wiki/Editor_de_código_fuente" title="Wikipedia" target="_blank">Editor de código fuente</a>. Ese escrito es analizado por el navegador y un resultado de tal análisis es el <a href="https://es.wikipedia.org/wiki/Document_Object_Model" title="Wikipedia" target="_blank">Document Object Model (DOM)</a>; esto último es lo que se manipula con JavaScript. Dicho de un modo simple, el DOM es donde la máquina hace cosas y Javascript es el lenguaje que le indica a la máquina qué cosas hacer.</p>
+            
+                <p id="d3"><strong>2.2. <a href="https://github.com/profesorfaco/describir-programar/wiki/D3.js" title="Wiki del Repositorio" target="_blank">D3.js es <u>D</u>ata <u>D</u>riven <u>D</u>ocument</a></strong>. Es una <a href="https://www.javascripting.com/" target="_blank" title="JavaScripting.com | The Database of JavaScript Libraries">de muchas bibliotecas de JavaScript</a>. Su diferencia, y razón para explorarla, es que nos facilita, además de la manipulación del DOM, el trabajo con datos, CSS y SVG.</p>
+
+            </div>
+        </div>
+    </div>
+    <!-- Lo que sigue vincula la librería de d3.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+    <!-- En lo que sigue me aprovecho de dos liberarías de JavaScript: leaflet.js y d3.js-->
+    <script>
+    </script>
+
+</body>
+
+</html>

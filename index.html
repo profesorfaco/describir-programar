@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Los siguientes metadatos son siempre necesarios -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Lo que sigue vincula el estilo CSS de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Lo que sigue vincula el estilo CSS de una librería que me permite trabajar con mapas: leaflet.js  -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    <!-- Lo que sigue vincula la librería de leaflet.js  -->
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+    <!-- A continuación agrego algo de estilo a la página -->
+    <link rel="stylesheet" href="style.css">
+    <title>+M4.5 | Chile</title>
+</head>
+
+<body>
+    
+    <select id="menu" onchange="location=this.value;">
+        <option value="index.html" selected>temblores localizados</option>
+        <option value="comparar.html">temblores comparados</option>
+        <option value="desarmar.html">describir y programar</option>
+    </select>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-sm-10 py-5 mx-auto">
+                <h1>+M4.5</h1>
+                <h3 class="mb-5">Un mes de temblores en Chile</h3>
+                <p>En la clase sobre <a href="https://github.com/profesorfaco/datos">datos</a>, donde alcanzamos a revisar algunos formatos ligeros de intercambio (<a href="https://es.wikipedia.org/wiki/Valores_separados_por_comas">CSV</a>, <a href="https://www.json.org/json-es.html">JSON</a>, <a href="https://developer.mozilla.org/es/docs/Web/XML/Introducci%C3%B3n_a_XML">XML</a>), me comprometí a preparar una página web con un mapa en donde tenían que marcarse los temblores que han afectado recientemente al territorio nacional.</p>
+                <p>Para poder cumplir con lo prometido, aproveché que:</p>
+                <ul>
+                    <li>la <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php">USGS</a> actualiza cada minuto un <a href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson">GeoJSON</a> con el registro de los temblores que han ocurrido durante el último mes alrededor del mundo;</li> 
+                    <li>el "parseo" de tal GeoJSON puede simplificarse cuando se usa una biblioteca de JavaScript que se llama <a href="https://d3js.org/">D3.js (<u>D</u>ata-<u>D</u>riven <u>D</u>ocuments)</a>;</li>
+                    <li>después del "parseo", los datos se disponen de manera adecuada para su tratamiento en JavaScript; y</li> 
+                    <li>podemos crear aplicaciones de mapas en web con otra biblioteca de JavaScript: <a href="https://leafletjs.com/">Leaflet</a>.</li>
+                </ul>
+                <div id="total" class="lead"></div>
+                <div id="mapa"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Lo que sigue vincula la librería de d3.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.min.js"></script>
+    <!-- En lo que sigue me aprovecho de dos liberarías de JavaScript: leaflet.js y d3.js-->
+    <script>
+        var elMapa = L.map('mapa').setView([-33.4379, -70.6505], 3);
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 19,
+            id: 'mapbox.outdoors'
+        }).addTo(elMapa);
+
+        d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson").then(function(data) {
+            var total = 0;
+            var pais = "Chile"
+            data.features.forEach(function(t, i) {
+                if (t.properties.place.includes(pais)) {
+                    total = total + 1;
+                    L.circle([t.geometry.coordinates[1], t.geometry.coordinates[0]], t.properties.mag * 7500, {
+                        stroke: false,
+                        fillColor: '#f00',
+                        fillOpacity: t.properties.mag / 10
+                    }).addTo(elMapa).bindPopup('<p><strong>M ' + t.properties.mag + '</strong><br/>' + new Date(t.properties.time) + '</p><address><a href="' + t.properties.url + '" target="_blank">Ver más detalles</a></address>');
+                    console.log(t)
+                }
+            });
+            d3.select("h3").text("Un mes de temblores en " + pais);
+            d3.select("#total").append("p").text('Con información actualizada cada 1 minuto, podemos decir que durante el último mes han habido ' + total + ' temblores de magnitud igual o superior a 4.5 en ' + pais);
+        });
+    </script>
+
+</body>
+
+</html>

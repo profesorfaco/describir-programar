@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Step two | There's so much we can do</title>
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif
+        }
+        
+        p {
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+    <svg viewBox="0 0 400 200" style="background:#ddd;">
+        <g>
+            <circle cx="100" cy="100" r="100" opacity=".5" />
+            <text x="100" y="100" text-anchor="middle">SVG</text>
+        </g>
+    </svg>
+
+    <p><a href="step-1.html">1</a> - <strong><a href="step-2.html">2</a></strong> - <a href="step-3.html">3</a> - <a href="step-4.html">4</a> - <a href="step-5.html">5</a></p>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script>
+        var alli = d3.select("svg").append("g");
+        
+        alli.append("circle").attr("cx", 300).attr("cy", 100).attr("r", 100).attr("opacity", .5);
+        
+        alli.append("text").attr("x", 300).attr("y", 100).attr("text-anchor", "middle").text("D3.js");
+    </script>
+
+</body>
+
+</html>
