@@ -15,7 +15,7 @@ La clase de hoy es práctica y colaborativa, para ello es necesario:
 - inmigración en Chile
 - otro (grupo decide el tema y busca datos correspondientes)
 
-3. Para cada tema, el grupo debe crear una página web que contenga un [visualización de datos](http://www.visual-literacy.org/periodic_table/periodic_table.html) generada con [D3.js](https://d3js.org/). Tienen que guardar esta página con un nombre distintos de `index.html`. Pueden comenzar su trabajo consultando los ejemplos disponibles en esta carpeta. En la preparación de su página, favor pongan atención a las definiciones de estilo (para que resulte de lo más pertinente al tema visualizado).
+3. Para cada tema, el grupo debe crear una página web que contenga un [visualización de datos](http://www.visual-literacy.org/periodic_table/periodic_table.html) generada con [D3.js](https://d3js.org/). Tienen que guardar esta página con un nombre distinto de `index.html`. Pueden comenzar su trabajo consultando los ejemplos disponibles en esta carpeta. En la preparación de su página, favor pongan atención a las definiciones de estilo (para que resulte de lo más pertinente al tema visualizado).
 
 4. Cuando tengan un avance en descripción y programación, favor pongan la página en línea, con GitHub pages, y compartan la dirección correspondiente con sus compañeras/os.
 
