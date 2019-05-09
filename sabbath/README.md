@@ -10,8 +10,8 @@ La clase de hoy es práctica y colaborativa, para ello es necesario:
 
 2. Cada grupo debe seleccionar un tema, entre: 
 
-- indicadores económicos
-- datos del fútbol
+- [indicadores económicos](https://profesorfaco.github.io/describir-programar/sabbath/economia.html)
+- [datos del fútbol](https://profesorfaco.github.io/describir-programar/sabbath/futbol.html)
 - inmigración en Chile
 - otro (grupo decide el tema y busca datos correspondientes)
 
