@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style>	
+		g text.nombre{color:inherit;}
+		g text.campeonatos{display:none;}
+		g:hover {cursor:crosshair;}
+		g:hover text.nombre{display:none;}
+		g:hover text.campeonatos{display:inherit;}
+	</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="row py-3">
+		<div class="col-11 col-sm-10 col-md-9 mx-auto">
+			<h1 class="mt-3">Súper campeones</h1>
+			<p>Los 20 equipos del mundo con mayor cantidad de campeonatos obtenidos, según <a href="https://www.goal.com/es-cl/listados/cuales-son-los-equipos-con-mas-titulos-del-mundo/f89c491jxuo11bm59t1929neo">GOAL.COM</a></p> 
+			<div id="grafico"></div>
+		</div>
+	</div>
+</div>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<!-- ver https://github.com/d3/d3-scale-chromatic -->
+
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+
+<script>
+
+d3.csv("https://raw.githubusercontent.com/profesorfaco/describir-programar/gh-pages/sabbath/datos/titulares.csv").then(function(data) {
+
+	// en la consola de javascript, lo lindo del parseo del CSV en D3.js 
+
+	console.log(data);
+
+	// por ese parseo, eviten tildes, acentos y palabras separadas en cada encabezado
+
+	var y = data.length;
+
+	var color = d3.scaleOrdinal(d3.schemeCategory10);
+
+	var top = Number(d3.max(data, function(d) { return Number(d.local) + Number(d.international) } ));
+
+	var razon = 5;
+  
+	console.log(top);
+
+  	var svg = d3.select("#grafico").append("svg").attr("viewBox","0 0 100 " + y*razon).style("background","#eee");
+  
+  	var grupo = svg.selectAll("g").data(data).enter().append("g").attr("transform",function(d,i){return "translate(0," + razon * i + ")"});
+
+  	grupo.append("rect").attr("x",0).attr("y",0).attr("width",function(d,i){ return (100*d.local)/top }).attr("height",razon).attr("fill",function(d,i){return color(i)}).attr("opacity",0.75);
+
+  	grupo.append("text").attr("x",1).attr("y",razon-1).text(function(d,i){return d.team + ' (' + d.country + ')'}).style("font-size","1.5").attr("fill","black").attr("class","nombre");
+
+  	grupo.append("text").attr("x",1).attr("y",razon-1).text(function(d,i){return d.local + ' locales | ' + d.international + ' internacionales'}).style("font-size","1.5").attr("fill","black").attr("class","campeonatos");
+
+  	grupo.append("rect").attr("x", function(d,i){ return (100*d.local)/top } ).attr("y",0).attr("width",function(d,i){ return (100*d.international)/top }).attr("height",razon).attr("fill",function(d,i){return color(i)});
+
+
+});
+
+</script>
+</body>
+</html>
