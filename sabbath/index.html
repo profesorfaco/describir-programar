@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style>	
+	g rect{
+		fill:#444;
+	}
+	g:hover rect{
+		fill:#000;
+	}
+	</style>
+</head>
+<body>
+
+<div class="container">
+	<div class="row py-3">
+		<div class="col-11 col-sm-10 col-md-9 mx-auto">
+			<h1 class="mt-3">Indicadores económicos</h1>
+			<p>En esta página aprovechamos una <a href="https://mindicador.cl/">API de indicadores económicos</a>. Esta aplicación mapea constantemente el sitio web del Banco Central de Chile, para ofrecer los valores al día.</p> 
+			<p><select onchange="seleccion()"></select></p>
+			<div id="grafico"></div>
+		</div>
+	</div>
+</div>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+
+<script>
+
+var opciones = [
+	{nombre:"escoge…",valor:""},
+	{nombre:"Bitcoin",valor:"bitcoin"},
+	{nombre:"Dólar observado",valor:"dolar"},
+	{nombre:"Euro",valor:"euro"},
+	{nombre:"Indice de Precios al Consumidor",valor:"ipc"},
+	{nombre:"Imacec",valor:"imacec"},
+	{nombre:"Libra de Cobre",valor:"libra_cobre"},
+	{nombre:"Tasa de desempleo",valor:"tasa_desempleo"},
+	{nombre:"Unidad Tributaria Mensual",valor:"utm"}
+]
+
+d3.select("select").selectAll("option").data(opciones).enter().append("option").text(function(d){return d.nombre}).attr("value",function(d){return d.valor});
+
+function seleccion(){
+
+	d3.select("svg").remove();
+
+	var indicador = document.getElementsByTagName("select")[0].value;
+
+	var after, before;
+
+	if (indicador == "dolar" || indicador == "euro" || indicador == "utm"){
+		before = "$"; after ="";
+	} else if (indicador == "ipc" || indicador == "imacec" || indicador == "tasa_desempleo") {
+		before = ""; after ="%";
+	} else {
+		before = "US$"; after = "";
+	}
+
+	var url = "https://mindicador.cl/api/"+indicador;
+
+		d3.json(url).then(function(data) {
+
+			console.log(data);
+			
+			var w = document.getElementById('grafico').offsetWidth;
+		  	
+		  	var h = data.serie.length*21;
+
+		  	var max = d3.max(data.serie, function(d) { return d.valor } );
+
+		  	console.log(max);
+		  	
+		  	var espacio = d3.select("#grafico").append("svg").attr('width',w).attr('height',h).style("background","silver");
+		  	
+		  	var grupo = espacio.selectAll("g").data(data.serie).enter().append("g").attr("transform",
+		  		function(d,i){return "translate(0," + 21 * i + ")"});
+
+		  	grupo.append("rect").attr("width",function(d,i){ return ((d.valor * w)/max)-70 }).attr("height",20).attr("x",70).attr("y",0);
+
+		  	grupo.append("text").text(function(d,i){ return d.fecha.split("T")[0]}).attr("height",20).attr("x",10).attr("y",14).attr("fill","#000").style("font-size","10px").style("font-family","sans-serif").style("line-height","20px").style("font-weight","bold");
+
+		  	grupo.append("text").text(function(d,i){ return before + "" + d.valor +""+ after}).attr("height",20).attr("x",75).attr("y",14).attr("fill","#fff").style("font-size","10px").style("font-family","sans-serif").style("line-height","20px");
+
+		});
+}
+
+</script>
+</body>
+</html>
