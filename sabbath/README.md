@@ -13,9 +13,9 @@ La clase de hoy es práctica y colaborativa, para ello es necesario:
 - [datos del fútbol](https://profesorfaco.github.io/describir-programar/sabbath/futbol.html)
 - [indicadores económicos](https://profesorfaco.github.io/describir-programar/sabbath/economia.html)
 - [inmigración extranjera en Chile](https://profesorfaco.github.io/describir-programar/sabbath/futbol.html)
-- otro tema (grupo decide y busca [datos](https://www.gapminder.org/data/) correspondientes)
+- otro (grupo decide y busca [datos](https://www.gapminder.org/data/) correspondientes)
 
-3. Para cada tema, el grupo debe crear una página web que contenga un [visualización de datos](http://www.visual-literacy.org/periodic_table/periodic_table.html) generada con [D3.js](https://d3js.org/). Esta página debe guardarse con un nombre que **NO** sea `index.html`. El grupo puede comenzar su trabajo consultando los ejemplos disponibles en esta carpeta. En la preparación de su página, favor pongan atención a las definiciones de estilo CSS (para que resulte de lo más pertinente al tema visualizado).
+3. Para cada tema, el grupo debe crear una página web que contenga un [visualización de datos](http://www.visual-literacy.org/periodic_table/periodic_table.html) generada con [D3.js](https://d3js.org/). Esta página debe guardarse con un nombre que **NO** sea `index.html` (Ejemplos: `futbol.html`, `economina.html`, `inmigracion.html`). El grupo puede comenzar su trabajo consultando los ejemplos disponibles en esta carpeta. Además, deben poner atención a las definiciones de estilo CSS (para que el resultado de lo escrito y programado sea de lo más pertinente al tema visualizado).
 
 4. Cuando tengan un avance en descripción (HTML, CSS) y programación (D3.js), favor pongan la página en línea, con GitHub pages, y compartan la dirección correspondiente con sus compañeras/os.
 
