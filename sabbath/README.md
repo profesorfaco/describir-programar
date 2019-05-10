@@ -19,6 +19,6 @@ La clase de hoy es práctica y colaborativa, para ello es necesario:
 
 4. Cuando tengan un avance en descripción y programación, favor pongan la página en línea, con GitHub pages, y compartan la dirección correspondiente con sus compañeras/os.
 
-5. Finalmente, tomando todas las direcciones, cada grupo debe preparar una segunda página web, a la que **sí** nombrará `index.html`. En esta página corresponde desplegar un *preview* del trabajo de cada grupo, vinculándolo. Las definiciones de estilo de esta segunda página deben estar emparentadas con las de su propia página de visualización de datos generada con D3.js.
+5. Finalmente, tomando todas las direcciones, cada grupo debe preparar una segunda página web, a la que **sí** deben nombrar `index.html`. En esta página corresponde desplegar un *preview* del trabajo de cada grupo, vinculándolo. Las definiciones de estilo de esta segunda página deben estar emparentadas con las de su propia página de visualización de datos generada con D3.js.
 
 **Antes de comenzar a describir y programar, es recomendable preparar un prototipo rápido, a mano, respetando las [10 heurísticas de usabilidad para el diseño de interfaces](https://www.nngroup.com/articles/ten-usability-heuristics/); y, antes de prototipar, es recomendable [especular respecto de un usuario específico](https://uxmag.com/articles/using-proto-personas-for-executive-alignment).**
