@@ -1,17 +1,17 @@
-region,inmigrantes,total,coordenadas
-"Región de Arica y Parinacota",18015,220254,"[-18.475, -70.314444]"
-"Región de Tarapacá",43646,319289,"[-20.283333, -69.333333]"
-"Región de Antofagasta",62663,571446,"[-23.644167, -70.410833]"
-"Región de Atacama",8798,282268,"[-27.366667, -70.332222]"
-"Región de Coquimbo",14741,739977,"[-29.907778, -71.254167]"
-"Región de Valparaíso",40166,1765261,"[-33.063056, -71.639444]"
-"Región Metropolitana de Santiago",486568,6962102,"[-33.437778, -70.650278]"
-"Región de O'Higgins",13242,893155,"[-34.371944, -71.124528]"
-"Región del Maule",10780,1020162,"[-35.426667, -71.671667]"
-"Región de Ñuble",3736,469542,"[-36.616667, -71.95]"
-"Región del Biobío",12144,1531365,"[-36.772778, -73.063056]"
-"Región de La Araucanía",10674,929307,"[-38.9,-72.666666666667]"
-"Región de Los Ríos",3768,371518,"[-39.808333,-73.241667]"
-"Región de Los Lagos",10034,807046,"[-41.471667, -72.936667]"
-"Región de Aysén",2083,98427,"[-45.57, -72.066111]"
-"Región de Magallanes y la Antártica Chilena",4714,160220,"[-53.1625, -70.9225]"
+region,inmigrantes,total,lat,lon
+"Región de Arica y Parinacota",18015,220254,-18.475,-70.314444
+"Región de Tarapacá",43646,319289,-20.283333,-69.333333
+"Región de Antofagasta",62663,571446,-23.644167,-70.410833
+"Región de Atacama",8798,282268,-27.366667,-70.332222
+"Región de Coquimbo",14741,739977,-29.907778, -71.254167
+"Región de Valparaíso",40166,1765261,-33.063056,-71.639444
+"Región Metropolitana de Santiago",486568,6962102,-33.437778,-70.650278
+"Región de O'Higgins",13242,893155,-34.371944,-71.124528
+"Región del Maule",10780,1020162,-35.426667,-71.671667
+"Región de Ñuble",3736,469542,-36.616667,-71.95
+"Región del Biobío",12144,1531365,-36.772778,-73.063056
+"Región de La Araucanía",10674,929307,-38.9,-72.666666666667
+"Región de Los Ríos",3768,371518,-39.808333,-73.241667
+"Región de Los Lagos",10034,807046,-41.471667, -72.936667
+"Región de Aysén",2083,98427,-45.57, -72.066111
+"Región de Magallanes y la Antártica Chilena",4714,160220,-53.1625, -70.9225
