@@ -6,19 +6,19 @@
 
 La clase de hoy es práctica y colaborativa, para ello es necesario:
 
-1. Armar grupos de 3 o 4 integrantes. Se recomienda que en cada grupo haya alguien que sepa trabajar con JavaScript y alguien que sepa trabajar con gráfica vectorial (Illustraror, InkScape).
+1. Armar grupos de 3 o 4 integrantes. Se recomienda que en cada grupo haya alguien que tenga un dominio intermedio o avanzado de JavaScript.
 
 2. Cada grupo debe seleccionar un tema, entre: 
 
-- [indicadores económicos](https://profesorfaco.github.io/describir-programar/sabbath/economia.html)
 - [datos del fútbol](https://profesorfaco.github.io/describir-programar/sabbath/futbol.html)
-- inmigración en Chile
-- otro (grupo decide el tema y busca datos correspondientes)
+- [indicadores económicos](https://profesorfaco.github.io/describir-programar/sabbath/economia.html)
+- [inmigración extranjera en Chile](https://profesorfaco.github.io/describir-programar/sabbath/futbol.html)
+- otro tema (grupo decide y busca [datos](https://www.gapminder.org/data/) correspondientes)
 
-3. Para cada tema, el grupo debe crear una página web que contenga un [visualización de datos](http://www.visual-literacy.org/periodic_table/periodic_table.html) generada con [D3.js](https://d3js.org/). Tienen que guardar esta página con un nombre que **no** sea `index.html`. Pueden comenzar su trabajo consultando los ejemplos disponibles en esta carpeta. En la preparación de su página, favor pongan atención a las definiciones de estilo (para que resulte de lo más pertinente al tema visualizado).
+3. Para cada tema, el grupo debe crear una página web que contenga un [visualización de datos](http://www.visual-literacy.org/periodic_table/periodic_table.html) generada con [D3.js](https://d3js.org/). Esta página debe guardarse con un nombre que **NO** sea `index.html`. El grupo puede comenzar su trabajo consultando los ejemplos disponibles en esta carpeta. En la preparación de su página, favor pongan atención a las definiciones de estilo CSS (para que resulte de lo más pertinente al tema visualizado).
 
-4. Cuando tengan un avance en descripción y programación, favor pongan la página en línea, con GitHub pages, y compartan la dirección correspondiente con sus compañeras/os.
+4. Cuando tengan un avance en descripción (HTML, CSS) y programación (D3.js), favor pongan la página en línea, con GitHub pages, y compartan la dirección correspondiente con sus compañeras/os.
 
-5. Finalmente, tomando todas las direcciones, cada grupo debe preparar una segunda página web, a la que **sí** deben nombrar `index.html`. En esta página corresponde desplegar un *preview* del trabajo de cada grupo, vinculándolo. Las definiciones de estilo de esta segunda página deben estar emparentadas con las de su propia página de visualización de datos generada con D3.js.
+5. Finalmente, tomando todas las direcciones, cada grupo debe preparar una segunda página web, cuyo nombre **SÍ** debe ser `index.html`. En esta página corresponde desplegar un *preview* del trabajo de cada grupo, vinculándolo. Las definiciones de estilo de esta segunda página deben estar emparentadas con las de su propia página de visualización de datos generada con D3.js.
 
 **Antes de comenzar a describir y programar, es recomendable preparar un prototipo rápido, a mano, respetando las [10 heurísticas de usabilidad para el diseño de interfaces](https://www.nngroup.com/articles/ten-usability-heuristics/); y, antes de prototipar, es recomendable [especular respecto de un usuario específico](https://uxmag.com/articles/using-proto-personas-for-executive-alignment).**
