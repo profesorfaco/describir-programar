@@ -12,7 +12,7 @@ La clase de hoy es práctica y colaborativa, para ello es necesario:
 
 - [datos del fútbol](https://profesorfaco.github.io/describir-programar/sabbath/futbol.html)
 - [indicadores económicos](https://profesorfaco.github.io/describir-programar/sabbath/economia.html)
-- [inmigración extranjera en Chile](https://profesorfaco.github.io/describir-programar/sabbath/futbol.html)
+- [inmigración extranjera en Chile](https://profesorfaco.github.io/describir-programar/sabbath/inmigracion.html)
 - otro (grupo decide y busca [datos](https://www.gapminder.org/data/) correspondientes)
 
 3. Para cada tema, el grupo debe crear una página web que contenga un [visualización de datos](http://www.visual-literacy.org/periodic_table/periodic_table.html) generada con [D3.js](https://d3js.org/). Esta página debe guardarse con un nombre que **NO** sea `index.html` (Ejemplos: `futbol.html`, `economina.html`, `inmigracion.html`). El grupo puede comenzar su trabajo consultando los ejemplos disponibles en esta carpeta. Además, deben poner atención a las definiciones de estilo CSS (para que el resultado de lo escrito y programado sea de lo más pertinente al tema visualizado).
