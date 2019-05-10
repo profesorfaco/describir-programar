@@ -15,10 +15,10 @@ La clase de hoy es práctica y colaborativa, para ello es necesario:
 - inmigración en Chile
 - otro (grupo decide el tema y busca datos correspondientes)
 
-3. Para cada tema, el grupo debe crear una página web que contenga un [visualización de datos](http://www.visual-literacy.org/periodic_table/periodic_table.html) generada con [D3.js](https://d3js.org/). Tienen que guardar esta página con un nombre distinto de `index.html`. Pueden comenzar su trabajo consultando los ejemplos disponibles en esta carpeta. En la preparación de su página, favor pongan atención a las definiciones de estilo (para que resulte de lo más pertinente al tema visualizado).
+3. Para cada tema, el grupo debe crear una página web que contenga un [visualización de datos](http://www.visual-literacy.org/periodic_table/periodic_table.html) generada con [D3.js](https://d3js.org/). Tienen que guardar esta página con un nombre que **no** sea `index.html`. Pueden comenzar su trabajo consultando los ejemplos disponibles en esta carpeta. En la preparación de su página, favor pongan atención a las definiciones de estilo (para que resulte de lo más pertinente al tema visualizado).
 
 4. Cuando tengan un avance en descripción y programación, favor pongan la página en línea, con GitHub pages, y compartan la dirección correspondiente con sus compañeras/os.
 
-5. Finalmente, tomando todas las direcciones, cada grupo debe preparar una segunda página web, a la que sí nombrará `index.html`. En esta página corresponde desplegar un *preview* del trabajo de cada grupo, vinculándolo. Las definiciones de estilo de esta segunda página deben estar emparentadas con las de su propia página de visualización de datos generada con D3.js.
+5. Finalmente, tomando todas las direcciones, cada grupo debe preparar una segunda página web, a la que **sí** nombrará `index.html`. En esta página corresponde desplegar un *preview* del trabajo de cada grupo, vinculándolo. Las definiciones de estilo de esta segunda página deben estar emparentadas con las de su propia página de visualización de datos generada con D3.js.
 
 **Antes de comenzar a describir y programar, es recomendable preparar un prototipo rápido, a mano, respetando las [10 heurísticas de usabilidad para el diseño de interfaces](https://www.nngroup.com/articles/ten-usability-heuristics/); y, antes de prototipar, es recomendable [especular respecto de un usuario específico](https://uxmag.com/articles/using-proto-personas-for-executive-alignment).**
