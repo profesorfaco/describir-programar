@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Inmigración en Chile</title>
+    <style>
+        div[class^="col"] {
+            height: 100vh;
+        }
+        
+        #elles {
+            background: linear-gradient(rgba(0, 0, 0, .9) 0%, rgba(0, 0, 0, 0.6) 100%), url("http://lanacion.cl/wp-content/uploads/2018/02/Aton_63823-696x391.jpg");
+            background-size: cover;
+        }
+        
+        select {
+            text-align: center;
+            margin: 1rem;
+        }
+        
+        #vineta {
+            position: absolute;
+            bottom: 0;
+            left:0;
+            right:0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row d-flex">
+            <div class="col-lg-6 text-center align-items-stretch bg-light">
+                <select onchange="seleccion()"></select>
+                <div id="my_dataviz"></div>
+                <div id="vineta">
+                    <p class="small">
+                        <span style="color:#f00">&#9632;</span> Perú
+                        <span style="color:#FB81BB">&#9632;</span> Colombia
+                        <span style="color:#FFCA45">&#9632;</span> Venezuela
+                        <span style="color:#00793D">&#9632;</span> Bolivia
+                        <span style="color:#386cb0">&#9632;</span> Argentina
+                        <span style="color:#f0027f">&#9632;</span> Haití
+                        <span style="color:#777">&#9632;</span> Otros
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 p-5 align-items-stretch text-white" id="elles">
+                <h1>Inmigración en Chile</h1>
+                <h4 class="mb-5">Nuevos flujos</h4>
+                <p>Al estudiar cuáles son los diez principales países que han aportado el mayor volumen de extranjeros en los censos históricos, se observa el predominio de cinco de ellos: Argentina, Bolivia y Perú, junto a España y Alemania.</p> 
+                <p>Pero el Censo 2017 hay nuevos flujos, que desplazan el predominio de tales aportes extranejeros. Entre ellos destacan Colombia y Venezuela, los que producto de las distintas crisis políticas, económicas y sociales de las últimas décadas han visto en Chile como un importante lugar de destino para vivir</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- Create a div where the graph will take place -->
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+    <script>
+        var opciones = [{
+            nombre: "escoge una región…",
+            valor: ""
+        }, {
+            nombre: "Arica y Parinacota",
+            valor: 0
+        }, {
+            nombre: "Tarapacá",
+            valor: 1
+        }, {
+            nombre: "Antofagasta",
+            valor: 2
+        }, {
+            nombre: "Atacama",
+            valor: 3
+        }, {
+            nombre: "Coquimbo",
+            valor: 4
+        }, {
+            nombre: "Valparaíso",
+            valor: 5
+        }, {
+            nombre: "Metropolitana",
+            valor: 6
+        }, {
+            nombre: "O'Higgins",
+            valor: 7
+        }, {
+            nombre: "Maule",
+            valor: 8
+        }, {
+            nombre: "Ñuble",
+            valor: 9
+        }, {
+            nombre: "Biobío",
+            valor: 10
+        }, {
+            nombre: "La Araucanía",
+            valor: 11
+        }, {
+            nombre: "Los Ríos",
+            valor: 12
+        }, {
+            nombre: "Los Lagos",
+            valor: 13
+        }, {
+            nombre: "Aysén",
+            valor: 14
+        }, {
+            nombre: "Magallanes y la Antártica Chilena",
+            valor: 15
+        }]
+
+        d3.select("select").selectAll("option").data(opciones).enter().append("option").text(function(d) {
+            return d.nombre
+        }).attr("value", function(d) {
+            return d.valor
+        });
+
+        function seleccion() {
+
+            d3.select("svg").remove();
+
+            var width = 450
+            height = 450
+            margin = 40
+
+            var radius = Math.min(width, height) / 2 - margin
+
+            var svg = d3.select("#my_dataviz")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .append("g")
+                .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+            var r = document.getElementsByTagName("select")[0].value;
+
+            var data = [{
+                peru: 7427,
+                colombia: 969,
+                venezuela: 166,
+                bolivia: 7777,
+                argentina: 346,
+                haiti: 3,
+                otros: 1327
+            }, {
+                peru: 13377,
+                colombia: 3710,
+                venezuela: 600,
+                bolivia: 19375,
+                argentina: 942,
+                haiti: 127,
+                otros: 5515
+            }, {
+                peru: 11126,
+                colombia: 19211,
+                venezuela: 972,
+                bolivia: 24063,
+                argentina: 1998,
+                haiti: 14,
+                otros: 5279
+            }, {
+                peru: 1473,
+                colombia: 2102,
+                venezuela: 273,
+                bolivia: 2819,
+                argentina: 487,
+                haiti: 53,
+                otros: 1591
+            }, {
+                peru: 2303,
+                colombia: 3349,
+                venezuela: 1087,
+                bolivia: 1307,
+                argentina: 1697,
+                haiti: 723,
+                otros: 4275
+            }
+            , {
+                peru: 3888,
+                colombia: 4473,
+                venezuela: 3816,
+                bolivia: 1788,
+                argentina: 7850,
+                haiti: 3551,
+                otros: 15000
+            }
+
+            , {
+                peru: 143243,
+                colombia: 62330,
+                venezuela: 69446,
+                bolivia: 14478,
+                argentina: 32844,
+                haiti: 54058,
+                otros: 110169
+            }
+            ,{
+                peru: 1356,
+                colombia: 2022,
+                venezuela: 1642,
+                bolivia: 866,
+                argentina: 1785,
+                haiti: 1715,
+                otros: 3856
+            }
+            ,{
+                peru: 665,
+                colombia: 1348,
+                venezuela: 1640,
+                bolivia: 341,
+                argentina: 1536,
+                haiti: 1503,
+                otros: 3747
+            }
+            , {
+                peru: 269,
+                colombia: 403,
+                venezuela: 386,
+                bolivia: 137,
+                argentina: 592,
+                haiti: 389,
+                otros: 1560
+            }
+            ,{
+                peru: 1093,
+                colombia: 1518,
+                venezuela: 1378,
+                bolivia: 303,
+                argentina: 2627,
+                haiti: 131,
+                otros: 5094
+            }
+            ,{
+                peru: 485,
+                colombia: 762,
+                venezuela: 575,
+                bolivia: 156,
+                argentina: 5283,
+                haiti: 258,
+                otros: 3155
+            }
+            ,{
+                peru: 138,
+                colombia: 384,
+                venezuela: 197,
+                bolivia: 85,
+                argentina: 1416,
+                haiti: 57,
+                otros: 1491
+            }
+            ,{
+                peru: 516,
+                colombia: 1264,
+                venezuela: 567,
+                bolivia: 140,
+                argentina: 4264,
+                haiti: 193,
+                otros: 3856
+            },{
+                peru: 93,
+                colombia: 353,
+                venezuela: 49,
+                bolivia: 21,
+                argentina: 1028,
+                haiti: 35,
+                otros: 3747
+            },{
+                peru: 160,
+                colombia: 1169,
+                venezuela: 204,
+                bolivia: 66,
+                argentina: 1715,
+                haiti: 27,
+                otros: 1560
+            }
+
+            ]
+
+            var color = d3.scaleOrdinal()
+                .domain(data[r])
+                .range(["#f00", "#FB81BB", "#FFCA45", "#00793D", "#386cb0", "#f0027f", "#777"])
+
+            var pie = d3.pie()
+                .value(function(d) {
+                    return d.value;
+                })
+            var data_ready = pie(d3.entries(data[r]))
+
+            // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+            svg
+                .selectAll('whatever')
+                .data(data_ready)
+                .enter()
+                .append('path')
+                .attr('d', d3.arc()
+                    .innerRadius(100)
+                    .outerRadius(radius)
+                )
+                .attr('fill', function(d) {
+                    return (color(d.data.key))
+                })
+                .style("opacity", 0.8)
+
+        }
+    </script>
+
+</body>
+
+</html>
