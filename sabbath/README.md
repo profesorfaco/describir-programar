@@ -4,6 +4,8 @@
 
 #### Clase 2: Sábado 11 de mayo.
 
+> Actualización: [aquí les dejo el ejercicio de las *donuts*](https://profesorfaco.github.io/describir-programar/sabbath/hecho-en-clases.html)
+
 La clase de hoy es práctica y colaborativa, para ello es necesario:
 
 1. Armar grupos de 3 o 4 integrantes. Se recomienda que en cada grupo haya alguien que tenga un dominio intermedio o avanzado de JavaScript.
